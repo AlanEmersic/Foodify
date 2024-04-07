@@ -1,16 +1,21 @@
-var builder = WebApplication.CreateBuilder(args);
+using Foodify.Application;
+using Foodify.Domain;
+using Foodify.Infrastructure;
+
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services
+    .AddDomain()
+    .AddApplication()
+    .AddInfrastructure();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+WebApplication app = builder.Build();
 
 app.UseHttpsRedirection();
+
+app.UseInfrastructure();
 
 app.Run();
