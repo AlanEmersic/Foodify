@@ -10,4 +10,12 @@
     <ProjectReference Include="..\Foodify.Application\Foodify.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
 </Project>
