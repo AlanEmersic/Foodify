@@ -2,7 +2,13 @@
 
 public abstract class AggregateRoot : Entity
 {
-    protected AggregateRoot(Guid id) : base(id)
+    protected readonly List<IDomainEvent> domainEvents = new();
+
+    public List<IDomainEvent> PopDomainEvents()
     {
+        List<IDomainEvent> copy = domainEvents.ToList();
+        domainEvents.Clear();
+
+        return copy;
     }
 }
