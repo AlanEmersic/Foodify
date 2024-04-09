@@ -7,14 +7,9 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddDomain()
     .AddApplication()
-    .AddInfrastructure();
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+    .AddInfrastructure(builder.Configuration);
 
 WebApplication app = builder.Build();
-
-app.UseHttpsRedirection();
 
 app.UseInfrastructure();
 
