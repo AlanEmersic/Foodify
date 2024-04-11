@@ -19,12 +19,14 @@ public static class InfrastructureExtensions
         services.AddControllers().AddJsonOptions(options => { options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; });
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+        services.AddProblemDetails();
 
         return services;
     }
 
     public static IApplicationBuilder UseInfrastructure(this IApplicationBuilder app)
     {
+        app.UseExceptionHandler();
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
@@ -42,6 +44,7 @@ public static class InfrastructureExtensions
 
     private static void AddServices(this IServiceCollection services)
     {
+        services.AddMediatR(options => options.RegisterServicesFromAssemblyContaining(typeof(InfrastructureExtensions)));
         services.AddScoped<IDateTimeProvider, SystemDateTimeProvider>();
     }
 }
