@@ -1,4 +1,5 @@
-﻿using Foodify.Domain.Orders;
+﻿using Foodify.Domain.Common.Interfaces;
+using Foodify.Domain.Orders;
 using Foodify.Domain.Restaurants;
 using Foodify.Domain.Subscriptions;
 using Foodify.Domain.Users;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Foodify.Infrastructure.DAL;
 
-public sealed class FoodifyDbContext : DbContext
+public sealed class FoodifyDbContext : DbContext, IUnitOfWork
 {
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Subscription> Subscriptions { get; set; } = null!;
@@ -22,5 +23,10 @@ public sealed class FoodifyDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(FoodifyDbContext).Assembly);
+    }
+
+    public async Task CommitChangesAsync(CancellationToken cancellationToken = default)
+    {
+        await SaveChangesAsync(cancellationToken);
     }
 }
