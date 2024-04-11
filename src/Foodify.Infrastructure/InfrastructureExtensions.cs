@@ -26,6 +26,7 @@ public static class InfrastructureExtensions
 
     public static IApplicationBuilder UseInfrastructure(this IApplicationBuilder app)
     {
+        app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().WithOrigins("https://localhost:3000"));
         app.UseExceptionHandler();
         app.UseHttpsRedirection();
         app.UseStaticFiles();
@@ -37,6 +38,8 @@ public static class InfrastructureExtensions
         app.UseEndpoints(builder =>
         {
             builder.MapControllers();
+
+            builder.MapFallbackToFile("index.html");
         });
 
         return app;
