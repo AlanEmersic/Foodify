@@ -15,5 +15,6 @@ internal sealed class RestaurantConfigurations : IEntityTypeConfiguration<Restau
         builder.Property(x => x.Description);
         builder.Property(x => x.Address);
         builder.Property(x => x.Email);
+        builder.Property(x => x.ImageUrl);
     }
 }

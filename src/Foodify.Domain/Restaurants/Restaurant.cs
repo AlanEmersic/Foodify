@@ -8,6 +8,7 @@ public sealed class Restaurant : AggregateRoot
     public string Description { get; init; } = null!;
     public string Address { get; init; } = null!;
     public string Email { get; init; } = null!;
+    public string ImageUrl { get; init; } = null!;
 
     public IReadOnlyCollection<Product> Products { get; set; } = null!;
 }
