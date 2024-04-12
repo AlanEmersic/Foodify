@@ -15,6 +15,7 @@ public static class RestaurantMappingExtensions
             Description = restaurant.Description,
             Address = restaurant.Address,
             Email = restaurant.Email,
+            ImageUrl = restaurant.ImageUrl,
             Products = restaurant.Products?.Select(product => product.MapToDto()).ToList()
         };
     }

@@ -7,5 +7,6 @@ public sealed record RestaurantDto
     public string Description { get; init; } = null!;
     public string Address { get; init; } = null!;
     public string Email { get; init; } = null!;
+    public string ImageUrl { get; init; } = null!;
     public IReadOnlyCollection<ProductDto>? Products { get; init; }
 }
