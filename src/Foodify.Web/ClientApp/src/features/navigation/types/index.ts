@@ -13,6 +13,7 @@ export const ROUTES = {
   LOG_IN: "/login",
   LOG_OUT: "/logout",
   REGISTER: "/register",
+  RESTAURANT_DETAILS: "/restaurant/:id",
 };
 
 export const NAVIGATION_ITEMS: NavigationItemType[] = [
