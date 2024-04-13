@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .modal-fade-in {
+    animation: animate-opacity-fade-in 250ms ease-in;
+  }
+
+  @keyframes animate-opacity-fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100;
+    }
+  }
+
+  .modal-fade-out {
+    animation: animate-opacity-fade-out 250ms ease-out;
+  }
+
+  @keyframes animate-opacity-fade-out {
+    0% {
+      opacity: 100;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

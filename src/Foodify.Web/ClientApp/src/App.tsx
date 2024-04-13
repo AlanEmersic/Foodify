@@ -2,7 +2,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { queryClient } from "config";
-import { Navigation, ROUTES, RestaurantList } from "features";
+import { Navigation, ROUTES, RestaurantDetails, RestaurantList } from "features";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path={ROUTES.HOME} element={<RestaurantList />}></Route>
+          <Route path={ROUTES.RESTAURANT_DETAILS} element={<RestaurantDetails />}></Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

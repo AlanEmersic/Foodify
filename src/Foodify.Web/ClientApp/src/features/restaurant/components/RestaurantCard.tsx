@@ -1,19 +1,29 @@
 import { Restaurant } from "features";
+import { useNavigate } from "react-router-dom";
 
-type RestaurantProps = {
+type RestaurantCardProps = {
   restaurant: Restaurant;
 };
 
-function RestaurantCard({ restaurant }: Readonly<RestaurantProps>) {
+function RestaurantCard({ restaurant }: Readonly<RestaurantCardProps>) {
+  const navigate = useNavigate();
+
   const time = Math.round((Math.random() * 20) / 5) * 5 + 20;
 
+  const handleOnRestaurantClick = (id: string) => {
+    navigate(`/restaurant/${id}`);
+  };
+
   return (
-    <div className="m-5 flex h-[400px] transform cursor-pointer flex-col justify-between rounded-lg border border-gray-200 bg-white p-5 shadow-md transition duration-500 hover:scale-110">
+    <div
+      onClick={() => handleOnRestaurantClick(restaurant.id)}
+      className="m-5 flex h-[400px] transform cursor-pointer flex-col justify-between rounded-lg border border-gray-200 bg-white p-5 shadow-md transition duration-500 hover:scale-110"
+    >
       <div className="h-1/2 w-full overflow-hidden">
         <img className="h-full w-full rounded-lg object-cover" src={restaurant.imageUrl} alt="" />
       </div>
       <div className="flex flex-1 flex-col justify-between pt-5">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-90">{restaurant.name}</h5>
+        <h5 className="text-gray-90 mb-2 text-2xl font-bold tracking-tight">{restaurant.name}</h5>
         <p className="mb-3 font-normal text-gray-700">{restaurant.description}</p>
         <div className="mt-3 flex items-end justify-between">
           <p className="flex w-24 cursor-pointer flex-row items-center rounded-lg bg-cyan-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">
