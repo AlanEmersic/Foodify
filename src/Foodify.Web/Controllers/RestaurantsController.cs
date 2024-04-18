@@ -1,4 +1,5 @@
 ﻿using ErrorOr;
+using Foodify.Application.Authorization;
 using Foodify.Application.Restaurants.Commands.CreateRestaurant;
 using Foodify.Application.Restaurants.Commands.DeleteRestaurant;
 using Foodify.Application.Restaurants.DTO;
@@ -38,6 +39,7 @@ public sealed class RestaurantsController : ApiController
     }
 
     [HttpPost]
+    [Authorize(Roles = Roles.Admin)]
     public async Task<IActionResult> CreateRestaurant(CreateRestaurantCommand command)
     {
         ErrorOr<Created> result = await mediator.Send(command);
@@ -46,6 +48,7 @@ public sealed class RestaurantsController : ApiController
     }
 
     [HttpDelete("{id:guid}")]
+    [Authorize(Roles = Roles.Admin)]
     public async Task<IActionResult> DeleteRestaurant(Guid id)
     {
         DeleteRestaurantCommand command = new(id);

@@ -18,9 +18,9 @@ internal sealed class CreateRestaurantCommandHandler : IRequestHandler<CreateRes
         this.unitOfWork = unitOfWork;
     }
 
-    public async Task<ErrorOr<Created>> Handle(CreateRestaurantCommand request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<Created>> Handle(CreateRestaurantCommand command, CancellationToken cancellationToken)
     {
-        Restaurant restaurant = request.MapToDomain();
+        Restaurant restaurant = command.MapToDomain();
         await restaurantsRepository.AddAsync(restaurant);
         await unitOfWork.CommitChangesAsync(cancellationToken);
 

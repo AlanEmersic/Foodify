@@ -15,13 +15,13 @@ internal sealed class GetRestaurantQueryHandler : IRequestHandler<GetRestaurantQ
         this.context = context;
     }
 
-    public async Task<ErrorOr<RestaurantDto>> Handle(GetRestaurantQuery request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<RestaurantDto>> Handle(GetRestaurantQuery query, CancellationToken cancellationToken)
     {
         RestaurantDto? restaurant = await context
             .Restaurants
             .AsNoTracking()
             .Include(x => x.Products)
-            .Where(x => x.Id == request.Id)
+            .Where(x => x.Id == query.Id)
             .Select(x => x.MapToDto())
             .SingleOrDefaultAsync(cancellationToken: cancellationToken);
 

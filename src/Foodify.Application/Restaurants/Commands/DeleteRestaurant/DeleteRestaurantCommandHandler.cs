@@ -17,9 +17,9 @@ internal sealed class DeleteRestaurantCommandHandler : IRequestHandler<DeleteRes
         this.unitOfWork = unitOfWork;
     }
 
-    public async Task<ErrorOr<Deleted>> Handle(DeleteRestaurantCommand request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<Deleted>> Handle(DeleteRestaurantCommand command, CancellationToken cancellationToken)
     {
-        Restaurant? restaurant = await restaurantsRepository.GetByIdAsync(request.Id);
+        Restaurant? restaurant = await restaurantsRepository.GetByIdAsync(command.Id);
 
         if (restaurant is null)
         {
