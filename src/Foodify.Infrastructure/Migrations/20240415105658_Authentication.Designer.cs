@@ -4,6 +4,7 @@ using Foodify.Infrastructure.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Foodify.Infrastructure.Migrations
 {
     [DbContext(typeof(FoodifyDbContext))]
-    partial class FoodifyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240415105658_Authentication")]
+    partial class Authentication
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -167,20 +170,6 @@ namespace Foodify.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Subscriptions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("defccacf-1e21-4fac-8148-9d4060279f59"),
-                            DiscountRate = 0f,
-                            SubscriptionType = "Free"
-                        },
-                        new
-                        {
-                            Id = new Guid("4b60a9c6-c724-4d54-8faf-68c9e1d5c008"),
-                            DiscountRate = 10f,
-                            SubscriptionType = "Plus"
-                        });
                 });
 
             modelBuilder.Entity("Foodify.Domain.Users.User", b =>
@@ -203,10 +192,6 @@ namespace Foodify.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Roles")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

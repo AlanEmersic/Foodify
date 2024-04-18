@@ -15,7 +15,7 @@ internal sealed class GetRestaurantsQueryHandler : IRequestHandler<GetRestaurant
         this.context = context;
     }
 
-    public async Task<ErrorOr<IReadOnlyList<RestaurantDto>>> Handle(GetRestaurantsQuery request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<IReadOnlyList<RestaurantDto>>> Handle(GetRestaurantsQuery query, CancellationToken cancellationToken)
     {
         List<RestaurantDto> restaurants = await context
             .Restaurants

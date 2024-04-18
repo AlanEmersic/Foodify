@@ -1,6 +1,7 @@
 ﻿using Foodify.Domain.Common.Interfaces;
 using Foodify.Domain.Repositories;
 using Foodify.Infrastructure.DAL.Restaurants.Repositories;
+using Foodify.Infrastructure.DAL.Users.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,7 @@ internal static class DatabaseExtensions
 
         services.AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetRequiredService<FoodifyDbContext>());
         services.AddScoped<IRestaurantsRepository, RestaurantsRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
 
         return services;
     }

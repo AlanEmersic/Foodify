@@ -5,25 +5,19 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5EDB30C5-034F-4EB1-9838-6661613C3796}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodify.Domain", "src\Foodify.Domain\Foodify.Domain.csproj", "{58B61F52-295C-4DDC-B314-7526075A3E37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foodify.Domain", "src\Foodify.Domain\Foodify.Domain.csproj", "{58B61F52-295C-4DDC-B314-7526075A3E37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodify.Application", "src\Foodify.Application\Foodify.Application.csproj", "{E57BB6BE-844B-475E-96CF-192F8200AC19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foodify.Application", "src\Foodify.Application\Foodify.Application.csproj", "{E57BB6BE-844B-475E-96CF-192F8200AC19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodify.Infrastructure", "src\Foodify.Infrastructure\Foodify.Infrastructure.csproj", "{3B3ADCCB-1CBF-4F05-91A9-3E0F89A84930}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foodify.Infrastructure", "src\Foodify.Infrastructure\Foodify.Infrastructure.csproj", "{3B3ADCCB-1CBF-4F05-91A9-3E0F89A84930}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodify.Web", "src\Foodify.Web\Foodify.Web.csproj", "{E612A424-5882-479B-891F-85C5F418580D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foodify.Web", "src\Foodify.Web\Foodify.Web.csproj", "{E612A424-5882-479B-891F-85C5F418580D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EF1E8FF3-7006-459D-B3A6-4373C39E59EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodify.Domain.Tests.Unit", "tests\Foodify.Domain.Tests.Unit\Foodify.Domain.Tests.Unit.csproj", "{DC00590C-F03A-4673-AE5F-7CC1597B1E62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foodify.Domain.Tests.Unit", "tests\Foodify.Domain.Tests.Unit\Foodify.Domain.Tests.Unit.csproj", "{DC00590C-F03A-4673-AE5F-7CC1597B1E62}"
 EndProject
 Global
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4AABEB9C-7DA9-4717-9B84-0439CB070B34}
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
@@ -94,11 +88,17 @@ Global
 		{DC00590C-F03A-4673-AE5F-7CC1597B1E62}.Release|x86.ActiveCfg = Release|Any CPU
 		{DC00590C-F03A-4673-AE5F-7CC1597B1E62}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{58B61F52-295C-4DDC-B314-7526075A3E37} = {5EDB30C5-034F-4EB1-9838-6661613C3796}
 		{E57BB6BE-844B-475E-96CF-192F8200AC19} = {5EDB30C5-034F-4EB1-9838-6661613C3796}
 		{3B3ADCCB-1CBF-4F05-91A9-3E0F89A84930} = {5EDB30C5-034F-4EB1-9838-6661613C3796}
 		{E612A424-5882-479B-891F-85C5F418580D} = {5EDB30C5-034F-4EB1-9838-6661613C3796}
 		{DC00590C-F03A-4673-AE5F-7CC1597B1E62} = {EF1E8FF3-7006-459D-B3A6-4373C39E59EF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4AABEB9C-7DA9-4717-9B84-0439CB070B34}
 	EndGlobalSection
 EndGlobal

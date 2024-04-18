@@ -14,5 +14,10 @@ internal sealed class SubscriptionConfigurations : IEntityTypeConfiguration<Subs
         builder.Property(x => x.Id).HasDefaultValueSql("NEWSEQUENTIALID()");
         builder.Property(x => x.SubscriptionType).HasConversion(new EnumToStringConverter<SubscriptionType>());
         builder.Property(x => x.DiscountRate);
+
+        builder.HasData(
+            new Subscription { Id = Guid.NewGuid(), SubscriptionType = SubscriptionType.Free, DiscountRate = 0 },
+            new Subscription { Id = Guid.NewGuid(), SubscriptionType = SubscriptionType.Plus, DiscountRate = 10 }
+            );
     }
 }
