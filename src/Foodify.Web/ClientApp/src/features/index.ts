@@ -10,3 +10,9 @@ export type { Product, Restaurant } from "./restaurant/types";
 export { Navigation } from "./navigation/components/Navigation";
 export { Search } from "./navigation/components/Search";
 export { NAVIGATION_ITEMS, ROUTES } from "./navigation/types";
+
+export { useLogin } from "./authentication/api/login";
+export { useRegister } from "./authentication/api/register";
+export { Login } from "./authentication/components/Login";
+export { Register } from "./authentication/components/Register";
+export { SubscriptionType, type AuthenticationDto, type LoginQuery, type RegisterCommand, type ValidationErrors } from "./authentication/types";

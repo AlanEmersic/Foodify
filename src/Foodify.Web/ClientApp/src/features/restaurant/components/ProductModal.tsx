@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { CloseCircleIcon, MinusIcon, PlusIcon } from "assets";
 import { Product } from "features";
+import { useAuthStore } from "stores";
 
 type ProductModalProps = {
   product: Product;
@@ -13,6 +14,8 @@ type ProductModalProps = {
 function ProductModal({ product, onClose, onAddToCart }: Readonly<ProductModalProps>) {
   const [quantity, setQuantity] = useState(1);
   const [isVisible, setIsVisible] = useState(true);
+
+  const { token } = useAuthStore(state => ({ token: state.token }));
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -70,25 +73,33 @@ function ProductModal({ product, onClose, onAddToCart }: Readonly<ProductModalPr
 
           <span className="max-w-[90%] rounded-2xl bg-gray-100 p-3 text-center text-lg font-semibold text-gray-500">{product.description}</span>
 
-          <div className="w-full shadow-xl">
-            <div className="flex items-center justify-between gap-5 p-4">
-              <div className="flex min-w-36 justify-between rounded-xl bg-blue-400">
-                <button onClick={decreaseQuantity} className="px-3 py-1">
-                  <MinusIcon className="h-6 w-6 rounded-3xl bg-white fill-blue-400" />
-                </button>
+          {token && (
+            <div className="w-full shadow-xl">
+              <div className="flex items-center justify-between gap-5 p-4">
+                <div className="flex min-w-36 justify-between rounded-xl bg-blue-400">
+                  <button onClick={decreaseQuantity} className="px-3 py-1">
+                    <MinusIcon className="h-6 w-6 rounded-3xl bg-white fill-blue-400" />
+                  </button>
 
-                <span className="px-3 py-1 text-white">{quantity}</span>
+                  <span className="px-3 py-1 text-white">{quantity}</span>
 
-                <button onClick={increaseQuantity} className="px-3 py-1">
-                  <PlusIcon className="h-6 w-6 rounded-3xl bg-white fill-blue-400" />
+                  <button onClick={increaseQuantity} className="px-3 py-1">
+                    <PlusIcon className="h-6 w-6 rounded-3xl bg-white fill-blue-400" />
+                  </button>
+                </div>
+
+                <button onClick={handleAddToCart} className="rounded-xl bg-blue-500 px-6 py-2 text-white">
+                  Add to order {(product.price * quantity).toFixed(2)} €
                 </button>
               </div>
-
-              <button onClick={handleAddToCart} className="rounded-xl bg-blue-500 px-6 py-2 text-white">
-                Add to order {(product.price * quantity).toFixed(2)} €
-              </button>
             </div>
-          </div>
+          )}
+
+          {!token && (
+            <span className="max-w-[90%] rounded-2xl bg-gray-100 p-3 text-center text-lg font-semibold text-blue-400">
+              Please log in to add products to your cart.
+            </span>
+          )}
         </div>
       </div>
     </div>
