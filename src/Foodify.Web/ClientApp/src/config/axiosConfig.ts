@@ -1,4 +1,6 @@
-import axios, { InternalAxiosRequestConfig } from "axios";
+import axios, { AxiosRequestConfig } from "axios";
+
+import { useAuthStore } from "stores";
 
 const API_URL: string = "https://localhost:7024";
 
@@ -12,7 +14,13 @@ const defaultOptions = {
 const instance = axios.create(defaultOptions);
 
 instance.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
+  (config: AxiosRequestConfig) => {
+    const { token } = useAuthStore.getState();
+
+    if (token) {
+      config.headers = { ...config.headers, Authorization: `Bearer ${token}` };
+    }
+
     return config;
   },
   error => {

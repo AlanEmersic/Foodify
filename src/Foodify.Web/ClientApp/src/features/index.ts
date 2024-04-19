@@ -16,3 +16,11 @@ export { useRegister } from "./authentication/api/register";
 export { Login } from "./authentication/components/Login";
 export { Register } from "./authentication/components/Register";
 export { SubscriptionType, type AuthenticationDto, type LoginQuery, type RegisterCommand, type ValidationErrors } from "./authentication/types";
+
+export { useUser } from "./user-profile/api/getUser";
+export { UserProfile } from "./user-profile/components/UserProfile";
+export { UserProfileDetails } from "./user-profile/components/UserProfileDetails";
+export { UserProfileOrders } from "./user-profile/components/UserProfileOrders";
+export { UserProfileTabs } from "./user-profile/components/UserProfileTabs";
+export { USER_PROFILE_TABS } from "./user-profile/constants/index";
+export { type User } from "./user-profile/types";
