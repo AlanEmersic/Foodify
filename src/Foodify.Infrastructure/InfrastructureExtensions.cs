@@ -43,7 +43,7 @@ public static class InfrastructureExtensions
 
     public static IApplicationBuilder UseInfrastructure(this IApplicationBuilder app)
     {
-        app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().WithOrigins("https://localhost:3000"));
+        app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().WithOrigins("https://localhost:3000"));
         app.UseExceptionHandler();
         app.UseHttpsRedirection();
         app.UseStaticFiles();

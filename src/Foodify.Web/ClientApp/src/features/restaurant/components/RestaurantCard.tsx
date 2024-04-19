@@ -1,5 +1,6 @@
-import { Restaurant } from "features";
 import { useNavigate } from "react-router-dom";
+
+import { ROUTES, Restaurant } from "features";
 
 type RestaurantCardProps = {
   restaurant: Restaurant;
@@ -11,7 +12,7 @@ function RestaurantCard({ restaurant }: Readonly<RestaurantCardProps>) {
   const time = Math.round((Math.random() * 20) / 5) * 5 + 20;
 
   const handleOnRestaurantClick = (id: string) => {
-    navigate(`/restaurant/${id}`);
+    navigate(`${ROUTES.RESTAURANT_DETAILS.replace(":id", id)}`);
   };
 
   return (
