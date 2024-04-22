@@ -11,7 +11,7 @@ namespace Foodify.Web.Controllers;
 
 [AllowAnonymous]
 [Route("api/[controller]")]
-public class AuthenticationController : ApiController
+public sealed class AuthenticationController : ApiController
 {
     private readonly ISender mediator;
 

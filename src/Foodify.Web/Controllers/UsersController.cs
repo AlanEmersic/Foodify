@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Foodify.Web.Controllers;
 
 [Route("api/[controller]")]
-public class UsersController : ApiController
+public sealed class UsersController : ApiController
 {
     private readonly ISender mediator;
 

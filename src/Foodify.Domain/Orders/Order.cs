@@ -6,7 +6,6 @@ namespace Foodify.Domain.Orders;
 public sealed class Order : AggregateRoot
 {
     public Guid UserId { get; init; }
-    public int Quantity { get; init; }
     public decimal TotalPrice { get; init; }
     public DateTime PlacedTime { get; init; }
     public DateTime? CompletedTime { get; init; }
