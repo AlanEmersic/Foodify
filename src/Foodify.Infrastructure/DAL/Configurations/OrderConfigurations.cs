@@ -13,7 +13,6 @@ internal sealed class OrderConfigurations : IEntityTypeConfiguration<Order>
 
         builder.Property(x => x.Id).HasDefaultValueSql("NEWSEQUENTIALID()");
         builder.Property(x => x.Status).HasConversion(new EnumToStringConverter<OrderStatus>());
-        builder.Property(x => x.Quantity);
         builder.Property(x => x.TotalPrice).HasPrecision(12, 5);
         builder.Property(x => x.PlacedTime);
         builder.Property(x => x.CompletedTime);
