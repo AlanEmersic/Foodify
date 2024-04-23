@@ -14,6 +14,7 @@ export const ROUTES = {
   LOG_OUT: "/logout",
   REGISTER: "/register",
   RESTAURANT_DETAILS: "/restaurant/:id",
+  ORDER_DETAILS: "/order/:id",
 };
 
 export const NAVIGATION_ITEMS: NavigationItemType[] = [

@@ -21,6 +21,7 @@ internal sealed class GetOrderQueryHandler : IRequestHandler<GetOrderQuery, Erro
             .Orders
             .AsNoTracking()
             .Include(x => x.OrderItems)
+            .ThenInclude(x => x.Product)
             .Where(x => x.Id == query.Id)
             .Select(x => x.MapToDto())
             .SingleOrDefaultAsync(cancellationToken: cancellationToken);

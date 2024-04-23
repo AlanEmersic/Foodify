@@ -5,7 +5,7 @@ type UserProfileDetailsProps = {
   user: User;
 };
 
-function UserProfileDetails({ user }: UserProfileDetailsProps) {
+function UserProfileDetails({ user }: Readonly<UserProfileDetailsProps>) {
   return (
     <div className="text-lg">
       <h2 className="text-2xl font-semibold">User Details</h2>

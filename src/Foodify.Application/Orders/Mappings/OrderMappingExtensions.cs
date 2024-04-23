@@ -1,5 +1,6 @@
 ﻿using Foodify.Application.Orders.Commands.CreateOrder;
 using Foodify.Application.Orders.DTO;
+using Foodify.Application.Restaurants.Mappings;
 using Foodify.Domain.Orders;
 
 namespace Foodify.Application.Orders.Mappings;
@@ -27,16 +28,17 @@ public static class OrderMappingExtensions
             OrderId = orderItem.OrderId,
             ProductId = orderItem.ProductId,
             Quantity = orderItem.Quantity,
-            Price = orderItem.Price
+            Price = orderItem.Price,
+            Product = orderItem.Product!.MapToDto()
         };
     }
 
-    public static Order MapToDomain(this CreateOrderCommand command, Guid userId, DateTime placedTime, DateTime completedTime, OrderStatus status)
+    public static Order MapToDomain(this CreateOrderCommand command, Guid userId, float subscriptionDiscount, DateTime placedTime, DateTime completedTime, OrderStatus status)
     {
         return new Order
         {
             UserId = userId,
-            TotalPrice = command.OrderItems.Sum(x => x.Quantity * x.Price),
+            TotalPrice = command.OrderItems.Sum(x => x.Quantity * x.Price) * (decimal)(1 - subscriptionDiscount / 100),
             PlacedTime = placedTime,
             CompletedTime = completedTime,
             Status = status,
