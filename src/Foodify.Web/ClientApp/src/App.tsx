@@ -2,7 +2,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { queryClient } from "config";
-import { Login, Navigation, ROUTES, Register, RestaurantDetails, RestaurantList, UserProfile } from "features";
+import { Login, Navigation, OrderDetails, ROUTES, Register, RestaurantDetails, RestaurantList, UserProfile } from "features";
 import { ProtectedRoute } from "routes";
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route path={ROUTES.MY_PROFILE} element={<UserProfile />} />
+            <Route path={ROUTES.ORDER_DETAILS} element={<OrderDetails />} />
           </Route>
 
           <Route path={"*"} element={<RestaurantList />} />

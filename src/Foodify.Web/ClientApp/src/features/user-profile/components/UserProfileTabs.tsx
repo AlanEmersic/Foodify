@@ -1,16 +1,19 @@
 import clsx from "clsx";
 import { SetStateAction } from "react";
 
+import { MealPlanIcon, UserCardIcon } from "assets";
+import { USER_PROFILE_TABS } from "features";
+
 type UserProfileTabsProps = {
-  tabItems: { id: string; name: string }[];
+  tabItems: typeof USER_PROFILE_TABS;
   activeTabItemId: string;
   setActiveTabItemId: (value: SetStateAction<string>) => void;
 };
 
-function UserProfileTabs({ tabItems, activeTabItemId, setActiveTabItemId }: UserProfileTabsProps) {
+function UserProfileTabs({ tabItems, activeTabItemId, setActiveTabItemId }: Readonly<UserProfileTabsProps>) {
   return (
     <div className="relative">
-      <div className={clsx("border-gray-300 flex gap-10 border-b")}>
+      <div className={clsx("flex gap-10 border-b border-gray-300")}>
         {tabItems.map(item => (
           <div
             key={item.id}
@@ -27,9 +30,12 @@ function UserProfileTabs({ tabItems, activeTabItemId, setActiveTabItemId }: User
                 activeTabItemId !== item.id && "group-hover:text-gray-500",
               )}
             >
+              {item.icon === "user-details" && <UserCardIcon className="mr-2 inline-block h-6 w-6 fill-slate-100" />}
+              {item.icon === "orders" && <MealPlanIcon className="mr-2 inline-block h-6 w-6" />}
+
               {item.name}
             </p>
-            {activeTabItemId === item.id && <div className="border-blue-500 rounded-xs absolute bottom-[-3px] w-full border"></div>}
+            {activeTabItemId === item.id && <div className="rounded-xs absolute bottom-[-3px] w-full border border-blue-500"></div>}
           </div>
         ))}
       </div>

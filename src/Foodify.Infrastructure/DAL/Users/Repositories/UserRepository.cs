@@ -33,7 +33,7 @@ internal sealed class UserRepository : IUserRepository
 
     public async Task<User?> GetByIdAsync(Guid userId)
     {
-        return await context.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == userId);
+        return await context.Users.AsNoTracking().Include(x => x.Subscription).FirstOrDefaultAsync(x => x.Id == userId);
     }
 
     public async Task UpdateAsync(User user)
