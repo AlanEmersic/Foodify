@@ -15,6 +15,7 @@ export const ROUTES = {
   REGISTER: "/register",
   RESTAURANT_DETAILS: "/restaurant/:id",
   ORDER_DETAILS: "/order/:id",
+  CART: "/cart",
 };
 
 export const NAVIGATION_ITEMS: NavigationItemType[] = [

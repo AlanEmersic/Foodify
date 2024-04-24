@@ -12,3 +12,4 @@ export { ReactComponent as DateOrderedIcon } from "assets/icons/date-ordered.svg
 export { ReactComponent as DateDeliveredIcon } from "assets/icons/date-delivered.svg";
 export { ReactComponent as TotalPriceIcon } from "assets/icons/total-price.svg";
 export { ReactComponent as StatusIcon } from "assets/icons/status.svg";
+export { ReactComponent as CartIcon } from "assets/icons/cart.svg";

@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { useState } from "react";
 
 import { Product, ProductModal } from "features";
+import { useCartStore } from "stores";
 
 type ProductCardProps = {
   product: Product;
@@ -10,8 +11,18 @@ type ProductCardProps = {
 function ProductCard({ product }: Readonly<ProductCardProps>) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const cart = useCartStore();
+
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+  };
+
+  const handleAddToCart = (quantity: number) => {
+    if (cart.items.some(item => item.productId === product.id)) {
+      cart.updateItem(product.id, quantity);
+    } else {
+      cart.addItem({ productId: product.id, quantity: quantity, price: product.price, product: product });
+    }
   };
 
   return (
@@ -32,7 +43,14 @@ function ProductCard({ product }: Readonly<ProductCardProps>) {
 
       <div className="flex p-5 align-bottom text-2xl font-bold text-blue-400">{product.price} €</div>
 
-      {isModalOpen && <ProductModal product={product} onClose={() => setIsModalOpen(false)} onAddToCart={() => {}} />}
+      {isModalOpen && (
+        <ProductModal
+          product={product}
+          onClose={() => setIsModalOpen(false)}
+          onAddToCart={handleAddToCart}
+          addedProductQuantity={cart.items.find(item => item.productId === product.id)?.quantity}
+        />
+      )}
     </div>
   );
 }

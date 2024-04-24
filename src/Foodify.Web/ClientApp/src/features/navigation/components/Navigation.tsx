@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { SearchIcon } from "assets";
+import { CartIcon, SearchIcon } from "assets";
 import { NAVIGATION_ITEMS, ROUTES, Search } from "features";
 import { useAuthStore } from "stores";
 
@@ -61,6 +61,7 @@ function Navigation() {
                   >
                     Profile
                   </Link>
+
                   <Link
                     onClick={handleOnLogoutClick}
                     to={ROUTES.LOG_OUT}
@@ -68,6 +69,14 @@ function Navigation() {
                     aria-current="page"
                   >
                     Log Out
+                  </Link>
+
+                  <Link
+                    to={ROUTES.CART}
+                    className="rounded-md bg-gray-100 px-2 py-1 text-center text-xl text-black md:hover:bg-gray-200"
+                    aria-current="page"
+                  >
+                    Cart <CartIcon className="inline-block h-4 w-4 fill-white" />
                   </Link>
                 </>
               ) : (
