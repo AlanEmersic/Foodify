@@ -144,11 +144,11 @@ function Register() {
               >
                 Create an account
               </button>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+              <p className="text-sm font-light text-gray-500">
                 Already have an account?{" "}
-                <a onClick={handleOnLoginClick} className="font-medium text-gray-600 hover:cursor-pointer hover:text-blue-500">
+                <button onClick={handleOnLoginClick} className="font-medium text-gray-600 hover:cursor-pointer hover:text-blue-500">
                   Login here
-                </a>
+                </button>
               </p>
             </form>
 

@@ -34,11 +34,12 @@ function OrderDetails() {
               Back to user profile
             </button>
           </div>
+
           <div className="mt-4">
             <h3 className="text-xl font-semibold">Items</h3>
             {order.data.orderItems!.map(item => (
-              <div key={item.id} className="my-2 border p-3 rounded-lg bg-slate-50 hover:bg-slate-100">
-                <img src={item.product.imageUrl} alt={item.product.name} className="float-left mr-4 h-28 w-48" />
+              <div key={item.id} className="my-2 rounded-lg border bg-slate-50 p-3 hover:bg-slate-100">
+                <img src={item.product.imageUrl} alt={item.product.name} className="float-left mr-4 max-w-[200px] object-cover" />
                 <p>
                   <strong>Product:</strong> {item.product.name}
                 </p>

@@ -7,12 +7,13 @@ import { useAuthStore } from "stores";
 
 type ProductModalProps = {
   product: Product;
+  addedProductQuantity?: number;
   onClose: () => void;
   onAddToCart: (quantity: number) => void;
 };
 
-function ProductModal({ product, onClose, onAddToCart }: Readonly<ProductModalProps>) {
-  const [quantity, setQuantity] = useState(1);
+function ProductModal({ product, onClose, onAddToCart, addedProductQuantity }: Readonly<ProductModalProps>) {
+  const [quantity, setQuantity] = useState(addedProductQuantity ?? 1);
   const [isVisible, setIsVisible] = useState(true);
 
   const { token } = useAuthStore(state => ({ token: state.token }));

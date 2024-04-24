@@ -15,3 +15,24 @@ export type Product = {
   price: number;
   imageUrl: string;
 };
+
+export type OrderCommand = {
+  orderItems: OrderItemCommand[];
+};
+
+export type OrderItemCommand = {
+  productId: string;
+  quantity: number;
+  price: number;
+};
+
+export type CartItemCommand = {
+  productId: string;
+  quantity: number;
+  price: number;
+  product: Product;
+};
+
+export type CartCommand = {
+  cartItems: CartItemCommand[];
+};
