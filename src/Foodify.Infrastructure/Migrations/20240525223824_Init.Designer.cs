@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Foodify.Infrastructure.Migrations
 {
     [DbContext(typeof(FoodifyDbContext))]
-    [Migration("20240422091646_Order")]
-    partial class Order
+    [Migration("20240525223824_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -171,13 +171,13 @@ namespace Foodify.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("180844bf-1f06-42f1-954b-5c45a882a77a"),
+                            Id = new Guid("fdf892ba-b6fb-48bc-8e80-be0024c89ba9"),
                             DiscountRate = 0f,
                             SubscriptionType = "Free"
                         },
                         new
                         {
-                            Id = new Guid("05811a33-3f04-4fd6-a3ec-fcfc6be127a2"),
+                            Id = new Guid("b2bf284b-66af-49f4-bf05-a9a6f5aefe82"),
                             DiscountRate = 10f,
                             SubscriptionType = "Plus"
                         });
