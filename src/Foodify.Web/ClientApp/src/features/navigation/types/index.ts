@@ -1,8 +1,6 @@
-export type NavigationItemNameType = "Home" | "My profile" | "About" | "Log In" | "Log Out" | "Register";
-
-export type NavigationItemType = {
+export type NavigationItem = {
   id?: number;
-  name: NavigationItemNameType;
+  name: "Home" | "About";
   link: string;
 };
 
@@ -18,7 +16,7 @@ export const ROUTES = {
   CART: "/cart",
 };
 
-export const NAVIGATION_ITEMS: NavigationItemType[] = [
+export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     id: 1,
     name: "Home",
