@@ -25,6 +25,7 @@ internal static class DatabaseExtensions
 
         services.AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetRequiredService<FoodifyDbContext>());
         services.AddScoped<IRestaurantsRepository, RestaurantsRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IOrdersRepository, OrdersRepository>();
 

@@ -18,24 +18,24 @@ internal sealed class RestaurantsRepository : IRestaurantsRepository
         return await context.Restaurants.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public Task AddAsync(Restaurant restaurant)
+    public async Task AddAsync(Restaurant restaurant)
     {
         context.Restaurants.Add(restaurant);
 
-        return Task.CompletedTask;
+        await Task.CompletedTask;
     }
 
-    public Task UpdateAsync(Restaurant restaurant)
+    public async Task UpdateAsync(Restaurant restaurant)
     {
         context.Restaurants.Update(restaurant);
 
-        return Task.CompletedTask;
+        await Task.CompletedTask;
     }
 
-    public Task DeleteAsync(Restaurant restaurant)
+    public async Task DeleteAsync(Restaurant restaurant)
     {
         context.Restaurants.Remove(restaurant);
 
-        return Task.CompletedTask;
+        await Task.CompletedTask;
     }
 }

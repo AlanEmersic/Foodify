@@ -1,4 +1,5 @@
-﻿using Foodify.Application.Restaurants.Commands.CreateRestaurant;
+﻿using Foodify.Application.Restaurants.Commands.CreateProduct;
+using Foodify.Application.Restaurants.Commands.CreateRestaurant;
 using Foodify.Application.Restaurants.DTO;
 using Foodify.Domain.Restaurants;
 
@@ -39,7 +40,20 @@ public static class RestaurantMappingExtensions
             Name = command.Name,
             Description = command.Description,
             Address = command.Address,
-            Email = command.Email
+            Email = command.Email,
+            ImageUrl = command.ImageUrl
+        };
+    }
+
+    public static Product MapToDomain(this CreateProductCommand command)
+    {
+        return new Product
+        {
+            RestaurantId = command.RestaurantId,
+            Name = command.Name,
+            Description = command.Description,
+            Price = command.Price,
+            ImageUrl = command.ImageUrl
         };
     }
 }
