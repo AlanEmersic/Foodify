@@ -5,7 +5,7 @@ import { NAVIGATION_ITEMS, ROUTES, Search } from "features";
 import { useAuthStore } from "stores";
 
 function Navigation() {
-  const { token, logout } = useAuthStore(state => ({ token: state.token, logout: state.logout }));
+  const { token, logout, isAdmin } = useAuthStore(state => ({ token: state.token, logout: state.logout, isAdmin: state.isAdmin }));
 
   const handleOnLogoutClick = () => {
     logout();
@@ -61,6 +61,16 @@ function Navigation() {
                   >
                     Profile
                   </Link>
+
+                  {isAdmin && (
+                    <Link
+                      to={ROUTES.ADMIN_PROFILE}
+                      className="block rounded px-3 py-2 text-orange-400 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-700"
+                      aria-current="page"
+                    >
+                      Admin
+                    </Link>
+                  )}
 
                   <Link
                     onClick={handleOnLogoutClick}

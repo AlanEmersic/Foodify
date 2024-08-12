@@ -13,3 +13,4 @@ export { ReactComponent as DateDeliveredIcon } from "assets/icons/date-delivered
 export { ReactComponent as TotalPriceIcon } from "assets/icons/total-price.svg";
 export { ReactComponent as StatusIcon } from "assets/icons/status.svg";
 export { ReactComponent as CartIcon } from "assets/icons/cart.svg";
+export { ReactComponent as NewRestaurantIcon } from "assets/icons/new-restaurant.svg";

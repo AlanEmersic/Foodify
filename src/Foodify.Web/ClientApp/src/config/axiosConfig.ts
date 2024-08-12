@@ -1,4 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { Role } from "features";
+import { jwtDecode } from "jwt-decode";
 
 import { useAuthStore } from "stores";
 
@@ -19,6 +21,12 @@ instance.interceptors.request.use(
 
     if (token) {
       config.headers = { ...config.headers, Authorization: `Bearer ${token}` };
+
+      const decodedToken = jwtDecode(token);
+
+      if (decodedToken?.roles?.includes(Role.Admin)) {
+        useAuthStore.setState({ isAdmin: true });
+      }
     }
 
     return config;

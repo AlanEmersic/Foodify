@@ -6,6 +6,9 @@ export type NavigationItem = {
 
 export const ROUTES = {
   HOME: "/",
+  ADMIN_PROFILE: "/admin-profile",
+  ADMIN_CREATE_RESTAURANT: "/admin-profile/create-restaurant",
+  ADMIN_EDIT_RESTAURANT: "/admin-profile/edit-restaurant/:id",
   MY_PROFILE: "/profile",
   ABOUT: "/about",
   LOG_IN: "/login",

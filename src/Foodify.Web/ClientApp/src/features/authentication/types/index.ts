@@ -24,3 +24,8 @@ export type AuthenticationDto = {
 export type ValidationErrors = {
   [key: string]: string;
 };
+
+export enum Role {
+  Admin = "Admin",
+  Customer = "Customer",
+}

@@ -17,7 +17,7 @@ export { useLogin } from "./authentication/api/login";
 export { useRegister } from "./authentication/api/register";
 export { Login } from "./authentication/components/Login";
 export { Register } from "./authentication/components/Register";
-export { SubscriptionType } from "./authentication/types";
+export { Role, SubscriptionType } from "./authentication/types";
 export type { AuthenticationDto, LoginQuery, RegisterCommand, ValidationErrors } from "./authentication/types";
 
 export { useOrder } from "./user-profile/api/getOrder";
@@ -28,5 +28,17 @@ export { UserProfile } from "./user-profile/components/UserProfile";
 export { UserProfileDetails } from "./user-profile/components/UserProfileDetails";
 export { UserProfileOrders } from "./user-profile/components/UserProfileOrders";
 export { UserProfileTabs } from "./user-profile/components/UserProfileTabs";
-export { USER_PROFILE_TABS } from "./user-profile/constants/index";
+export { USER_PROFILE_TABS, USER_PROFILE_TABS_ICONS } from "./user-profile/constants/index";
 export type { Order, OrderItem, User } from "./user-profile/types";
+
+export { useCreateProduct } from "./admin-profile/api/createProduct";
+export { useCreateRestaurant } from "./admin-profile/api/createRestaurant";
+export { useDeleteRestaurant } from "./admin-profile/api/deleteRestaurant";
+export { AdminCreateRestaurant } from "./admin-profile/components/AdminCreateRestaurant";
+export { AdminEditRestaurant } from "./admin-profile/components/AdminEditRestaurant";
+export { AdminProfile } from "./admin-profile/components/AdminProfile";
+export { AdminProfileTabs } from "./admin-profile/components/AdminProfileTabs";
+export { AdminRestaurantCard } from "./admin-profile/components/AdminRestaurantCard";
+export { AdminRestaurantList } from "./admin-profile/components/AdminRestaurantList";
+export { ADMIN_PROFILE_TABS, ADMIN_PROFILE_TABS_ICONS } from "./admin-profile/constants/index";
+export type { ProductCommand, RestaurantCommand } from "./admin-profile/types";

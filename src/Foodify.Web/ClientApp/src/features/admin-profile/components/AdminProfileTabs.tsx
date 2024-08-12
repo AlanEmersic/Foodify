@@ -2,15 +2,15 @@ import clsx from "clsx";
 import { SetStateAction } from "react";
 
 import { MealPlanIcon, UserCardIcon } from "assets";
-import { USER_PROFILE_TABS, USER_PROFILE_TABS_ICONS } from "features";
+import { ADMIN_PROFILE_TABS, ADMIN_PROFILE_TABS_ICONS } from "features";
 
-type UserProfileTabsProps = {
-  tabItems: typeof USER_PROFILE_TABS;
+type AdminProfileTabsProps = {
+  tabItems: typeof ADMIN_PROFILE_TABS;
   activeTabItemId: string;
   setActiveTabItemId: (value: SetStateAction<string>) => void;
 };
 
-function UserProfileTabs({ tabItems, activeTabItemId, setActiveTabItemId }: Readonly<UserProfileTabsProps>) {
+function AdminProfileTabs({ tabItems, activeTabItemId, setActiveTabItemId }: Readonly<AdminProfileTabsProps>) {
   return (
     <div className="relative">
       <div className={clsx("flex gap-10 border-b border-gray-300")}>
@@ -29,8 +29,8 @@ function UserProfileTabs({ tabItems, activeTabItemId, setActiveTabItemId }: Read
                 activeTabItemId !== item.id && "group-hover:text-gray-500",
               )}
             >
-              {item.icon === USER_PROFILE_TABS_ICONS["user-details"] && <UserCardIcon className="mr-2 inline-block h-6 w-6 fill-slate-100" />}
-              {item.icon === USER_PROFILE_TABS_ICONS["orders"] && <MealPlanIcon className="mr-2 inline-block h-6 w-6" />}
+              {item.icon === ADMIN_PROFILE_TABS_ICONS["admin-details"] && <UserCardIcon className="mr-2 inline-block h-6 w-6 fill-slate-100" />}
+              {item.icon === ADMIN_PROFILE_TABS_ICONS["restaurants"] && <MealPlanIcon className="mr-2 inline-block h-6 w-6" />}
 
               {item.name}
             </p>
@@ -42,4 +42,4 @@ function UserProfileTabs({ tabItems, activeTabItemId, setActiveTabItemId }: Read
   );
 }
 
-export { UserProfileTabs };
+export { AdminProfileTabs };

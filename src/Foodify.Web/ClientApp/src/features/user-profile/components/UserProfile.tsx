@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { USER_PROFILE_TABS, UserProfileDetails, UserProfileOrders, UserProfileTabs, useOrders, useUser } from "features";
+import { USER_PROFILE_TABS, USER_PROFILE_TABS_ICONS, UserProfileDetails, UserProfileOrders, UserProfileTabs, useOrders, useUser } from "features";
 import { useAuthStore } from "stores";
 
 function UserProfile() {
@@ -19,8 +19,8 @@ function UserProfile() {
       </div>
 
       <div className="grid-row-12 mt-10 grid w-[50%] gap-10">
-        {currentTabId === "user-details" && user.isFetched && <UserProfileDetails user={user.data!} />}
-        {currentTabId === "orders" && user.isFetched && orders.isFetched && <UserProfileOrders orders={orders.data!} />}
+        {currentTabId === USER_PROFILE_TABS_ICONS["user-details"] && user.isFetched && <UserProfileDetails user={user.data!} />}
+        {currentTabId === USER_PROFILE_TABS_ICONS["orders"] && user.isFetched && orders.isFetched && <UserProfileOrders orders={orders.data!} />}
       </div>
     </div>
   );
