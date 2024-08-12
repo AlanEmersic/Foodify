@@ -79,8 +79,9 @@ function Login() {
               <button
                 type="submit"
                 className={clsx(
-                  "w-full rounded-lg bg-gray-400 px-5 py-2.5 text-center text-lg font-medium text-white",
-                  !loginMutation.isPending && email && password && "hover:bg-blue-500",
+                  "w-full rounded-lg px-5 py-2.5 text-center text-lg font-medium text-white",
+                  !loginMutation.isPending && email && password && "bg-blue-500",
+                  !loginMutation.isPending && (!email || !password) && "bg-gray-400",
                 )}
                 disabled={loginMutation.isPending || !email || !password}
               >
