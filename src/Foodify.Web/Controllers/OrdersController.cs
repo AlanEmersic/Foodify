@@ -4,6 +4,7 @@ using Foodify.Application.Orders.Commands.CreateOrder;
 using Foodify.Application.Orders.DTO;
 using Foodify.Infrastructure.DAL.Orders.Queries.GetOrder;
 using Foodify.Infrastructure.DAL.Orders.Queries.GetOrders;
+using Foodify.Infrastructure.DAL.Orders.Queries.GetUsersOrdersSummary;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -46,5 +47,15 @@ public sealed class OrdersController : ApiController
         ErrorOr<Created> result = await mediator.Send(command);
 
         return result.Match(_ => CreatedAtAction(nameof(CreateOrder), default), Problem);
+    }
+
+    [HttpGet("summary")]
+    [Authorize(Roles = Roles.Admin)]
+    public async Task<IActionResult> GetUsersOrdersSummary()
+    {
+        GetUsersOrdersSummaryQuery query = new();
+        ErrorOr<IReadOnlyList<UserOrdersSummaryDto>> result = await mediator.Send(query);
+
+        return result.Match(Ok, Problem);
     }
 }
