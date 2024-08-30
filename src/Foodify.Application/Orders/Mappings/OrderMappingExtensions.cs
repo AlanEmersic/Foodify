@@ -33,6 +33,25 @@ public static class OrderMappingExtensions
         };
     }
 
+    public static UserOrdersSummaryDto MapToDto(this IGrouping<Guid, Order> orderGroup)
+    {
+        return new UserOrdersSummaryDto
+        {
+            UserId = orderGroup.Key,
+            Email = orderGroup.First().User?.Email ?? string.Empty,
+            TotalAmountSpent = orderGroup.Sum(order => order.TotalPrice),
+            MonthlySpendings = orderGroup
+                .GroupBy(order => order.PlacedTime.ToString("yyyy-MM"))
+                .Select(x => new MonthlySpendingDto
+                {
+                    Month = x.Key,
+                    TotalSpent = x.Sum(order => order.TotalPrice)
+                })
+                .OrderBy(x => x.Month)
+                .ToList()
+        };
+    }
+
     public static Order MapToDomain(this CreateOrderCommand command, Guid userId, float subscriptionDiscount, DateTime placedTime, DateTime completedTime, OrderStatus status)
     {
         return new Order
