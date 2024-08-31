@@ -1,6 +1,7 @@
 ﻿using Foodify.Application.Restaurants.Commands.CreateProduct;
 using Foodify.Application.Restaurants.Commands.CreateRestaurant;
 using Foodify.Application.Restaurants.DTO;
+using Foodify.Domain.Orders;
 using Foodify.Domain.Restaurants;
 
 namespace Foodify.Application.Restaurants.Mappings;
@@ -30,6 +31,23 @@ public static class RestaurantMappingExtensions
             Description = product.Description,
             Price = product.Price,
             ImageUrl = product.ImageUrl
+        };
+    }
+
+    public static ProductSummaryDto MapToDto(this IGrouping<ProductGroupingKey, OrderItem> orderItemGroup)
+    {
+        return new ProductSummaryDto
+        {
+            ProductName = orderItemGroup.Key.Name,
+            TotalQuantity = orderItemGroup.Sum(x => x.Quantity),
+            Sales = orderItemGroup
+                .GroupBy(x => x.Order!.PlacedTime.ToString("yyyy-MM"))
+                .Select(monthGroup => new SalesDto
+                {
+                    Month = monthGroup.Key,
+                    Quantity = monthGroup.Sum(x => x.Quantity)
+                })
+                .ToList()
         };
     }
 
