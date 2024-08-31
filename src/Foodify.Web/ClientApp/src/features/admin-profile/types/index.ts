@@ -13,3 +13,15 @@ export type ProductCommand = {
   price: number;
   imageUrl: string;
 };
+
+export type MonthlySpending = {
+  month: string;
+  totalSpent: number;
+};
+
+export type UserOrdersSummary = {
+  userId: string;
+  email: string;
+  totalAmountSpent: number;
+  monthlySpendings: MonthlySpending[];
+};
