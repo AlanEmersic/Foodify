@@ -25,3 +25,20 @@ export type UserOrdersSummary = {
   totalAmountSpent: number;
   monthlySpendings: MonthlySpending[];
 };
+
+export type RestaurantSummary = {
+  id: string;
+  name: number;
+  summary: ProductSummary[];
+};
+
+export type ProductSummary = {
+  productName: string;
+  totalQuantity: number;
+  sales: Sales[];
+};
+
+export type Sales = {
+  month: string;
+  quantity: number;
+};
