@@ -5,6 +5,7 @@ using Foodify.Application.Restaurants.Commands.DeleteRestaurant;
 using Foodify.Application.Restaurants.DTO;
 using Foodify.Infrastructure.DAL.Restaurants.Queries.GetRestaurant;
 using Foodify.Infrastructure.DAL.Restaurants.Queries.GetRestaurants;
+using Foodify.Infrastructure.DAL.Restaurants.Queries.GetRestaurantSummary;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -55,5 +56,15 @@ public sealed class RestaurantsController : ApiController
         ErrorOr<Deleted> result = await mediator.Send(command);
 
         return result.Match(_ => NoContent(), Problem);
+    }
+
+    [HttpGet("{id:guid}/summary")]
+    [Authorize(Roles = Roles.Admin)]
+    public async Task<IActionResult> GetProductsSummary(Guid id)
+    {
+        GetRestaurantSummaryQuery query = new(id);
+        ErrorOr<RestaurantSummary> result = await mediator.Send(query);
+
+        return result.Match(Ok, Problem);
     }
 }

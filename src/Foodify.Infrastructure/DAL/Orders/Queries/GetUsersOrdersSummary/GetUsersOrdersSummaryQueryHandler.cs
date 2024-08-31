@@ -30,8 +30,8 @@ internal sealed class GetUsersOrdersSummaryQueryHandler : IRequestHandler<GetUse
             return Error.NotFound(description: "No orders found");
         }
 
-        List<UserOrdersSummaryDto> summaryList = orders.Select(x => x.MapToDto()).ToList();
+        List<UserOrdersSummaryDto> summary = orders.Select(x => x.MapToDto()).ToList();
 
-        return summaryList;
+        return summary;
     }
 }
