@@ -1,6 +1,14 @@
 import { useState } from "react";
 
-import { ADMIN_PROFILE_TABS, ADMIN_PROFILE_TABS_ICONS, AdminProfileTabs, AdminRestaurantList, UserProfileDetails, useUser } from "features";
+import {
+  ADMIN_PROFILE_TABS,
+  ADMIN_PROFILE_TABS_ICONS,
+  AdminOrdersSummary,
+  AdminProfileTabs,
+  AdminRestaurantList,
+  UserProfileDetails,
+  useUser,
+} from "features";
 import { useAuthStore } from "stores";
 
 function AdminProfile() {
@@ -21,6 +29,8 @@ function AdminProfile() {
         {currentTabId === ADMIN_PROFILE_TABS_ICONS["admin-details"] && user.isFetched && <UserProfileDetails user={user.data!} />}
 
         {currentTabId === ADMIN_PROFILE_TABS_ICONS["restaurants"] && user.isFetched && <AdminRestaurantList />}
+
+        {currentTabId === ADMIN_PROFILE_TABS_ICONS["orders-summary"] && user.isFetched && <AdminOrdersSummary />}
       </div>
     </div>
   );
