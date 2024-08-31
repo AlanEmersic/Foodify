@@ -3,6 +3,24 @@ import { Line } from "react-chartjs-2";
 
 import { useUsersOrdersSummary } from "features";
 
+const options = {
+  scales: {
+    y: {
+      beginAtZero: true,
+      title: {
+        display: true,
+        text: "Amount spent (€)",
+      },
+    },
+    x: {
+      title: {
+        display: true,
+        text: "Year-Month",
+      },
+    },
+  },
+};
+
 function AdminOrdersSummary() {
   const userOrdersSummary = useUsersOrdersSummary();
 
@@ -33,23 +51,7 @@ function AdminOrdersSummary() {
                 },
               ],
             }}
-            options={{
-              scales: {
-                y: {
-                  beginAtZero: true,
-                  title: {
-                    display: true,
-                    text: "Amount spent (€)",
-                  },
-                },
-                x: {
-                  title: {
-                    display: true,
-                    text: "Year-Month",
-                  },
-                },
-              },
-            }}
+            options={options}
           />
         </div>
       ))}

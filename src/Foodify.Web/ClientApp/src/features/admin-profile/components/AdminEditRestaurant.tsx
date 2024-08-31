@@ -42,7 +42,7 @@ function AdminEditRestaurant() {
     e.preventDefault();
   };
 
-  if (restaurant.isLoading) {
+  if (restaurant.isLoading || !restaurant.data) {
     return <div className="m-auto flex justify-center">Loading...</div>;
   }
 
