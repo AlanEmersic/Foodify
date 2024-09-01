@@ -60,7 +60,7 @@ public sealed class RestaurantsController : ApiController
 
     [HttpGet("{id:guid}/summary")]
     [Authorize(Roles = Roles.Admin)]
-    public async Task<IActionResult> GetProductsSummary(Guid id)
+    public async Task<IActionResult> GetRestaurantSummary(Guid id)
     {
         GetRestaurantSummaryQuery query = new(id);
         ErrorOr<RestaurantSummary> result = await mediator.Send(query);

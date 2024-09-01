@@ -38,7 +38,8 @@ public static class RestaurantMappingExtensions
     {
         return new ProductSummaryDto
         {
-            ProductName = orderItemGroup.Key.Name,
+            Id = orderItemGroup.Key.ProductId,
+            Name = orderItemGroup.Key.Name,
             TotalQuantity = orderItemGroup.Sum(x => x.Quantity),
             Sales = orderItemGroup
                 .GroupBy(x => x.Order!.PlacedTime.ToString("yyyy-MM"))

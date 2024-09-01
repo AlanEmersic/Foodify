@@ -20,10 +20,10 @@ internal sealed class GetRestaurantSummaryQueryHandler : IRequestHandler<GetRest
     {
         List<IGrouping<ProductGroupingKey, OrderItem>> orderItems = await context
             .OrderItems
-            .Include(oi => oi.Order)
-            .Include(oi => oi.Product)
-            .Where(oi => oi.Product!.RestaurantId == query.RestaurantId)
-            .GroupBy(oi => new ProductGroupingKey { ProductId = oi.ProductId, Name = oi.Product!.Name })
+            .Include(x => x.Order)
+            .Include(x => x.Product)
+            .Where(x => x.Product!.RestaurantId == query.RestaurantId)
+            .GroupBy(x => new ProductGroupingKey { ProductId = x.ProductId, Name = x.Product!.Name })
             .ToListAsync(cancellationToken: cancellationToken);
 
         if (orderItems.Count is 0)
@@ -33,19 +33,19 @@ internal sealed class GetRestaurantSummaryQueryHandler : IRequestHandler<GetRest
 
         string restaurantName = await context
             .Restaurants
-            .Where(r => r.Id == query.RestaurantId)
-            .Select(r => r.Name)
+            .Where(x => x.Id == query.RestaurantId)
+            .Select(x => x.Name)
             .FirstAsync(cancellationToken: cancellationToken);
 
         List<ProductSummaryDto> productSummaries = orderItems.Select(x => x.MapToDto()).ToList();
 
-        RestaurantSummary summary = new()
+        RestaurantSummary restaurantSummary = new()
         {
             Id = query.RestaurantId,
             Name = restaurantName,
             Summary = productSummaries
         };
 
-        return summary;
+        return restaurantSummary;
     }
 }
