@@ -2,7 +2,8 @@
 
 public sealed record ProductSummaryDto
 {
-    public string ProductName { get; init; } = null!;
+    public Guid Id { get; init; }
+    public string Name { get; init; } = null!;
     public int TotalQuantity { get; init; }
     public IReadOnlyCollection<SalesDto> Sales { get; init; } = null!;
 }

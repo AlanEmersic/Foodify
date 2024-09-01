@@ -33,7 +33,8 @@ export type RestaurantSummary = {
 };
 
 export type ProductSummary = {
-  productName: string;
+  id: string;
+  name: string;
   totalQuantity: number;
   sales: Sales[];
 };
