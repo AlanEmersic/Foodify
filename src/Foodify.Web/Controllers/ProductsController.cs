@@ -26,7 +26,7 @@ public sealed class ProductsController : ApiController
         return result.Match(_ => CreatedAtAction(nameof(CreateProduct), default), Problem);
     }
 
-    [HttpDelete]
+    [HttpDelete("{id:guid}")]
     [Authorize(Roles = Roles.Admin)]
     public async Task<IActionResult> DeleteProduct(Guid id)
     {

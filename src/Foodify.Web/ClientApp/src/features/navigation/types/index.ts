@@ -9,6 +9,7 @@ export const ROUTES = {
   ADMIN_PROFILE: "/admin-profile",
   ADMIN_CREATE_RESTAURANT: "/admin-profile/create-restaurant",
   ADMIN_EDIT_RESTAURANT: "/admin-profile/edit-restaurant/:id",
+  ADMIN_RESTAURANT_PRODUCTS: "/admin-profile/restaurant-products/:id",
   ADMIN_RESTAURANT_SUMMARY: "/admin-profile/restaurant/:id/summary",
   MY_PROFILE: "/profile",
   ABOUT: "/about",

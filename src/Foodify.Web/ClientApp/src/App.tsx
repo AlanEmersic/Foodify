@@ -6,6 +6,7 @@ import {
   AdminCreateRestaurant,
   AdminEditRestaurant,
   AdminProfile,
+  AdminRestaurantProducts,
   AdminRestaurantSummary,
   CartDetails,
   Login,
@@ -34,6 +35,7 @@ function App() {
             <Route path={ROUTES.ADMIN_PROFILE} element={<AdminProfile />} />
             <Route path={ROUTES.ADMIN_CREATE_RESTAURANT} element={<AdminCreateRestaurant />} />
             <Route path={ROUTES.ADMIN_EDIT_RESTAURANT} element={<AdminEditRestaurant />} />
+            <Route path={ROUTES.ADMIN_RESTAURANT_PRODUCTS} element={<AdminRestaurantProducts />} />
             <Route path={ROUTES.ADMIN_RESTAURANT_SUMMARY} element={<AdminRestaurantSummary />} />
             <Route path={ROUTES.MY_PROFILE} element={<UserProfile />} />
             <Route path={ROUTES.ORDER_DETAILS} element={<OrderDetails />} />

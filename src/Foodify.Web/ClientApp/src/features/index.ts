@@ -33,9 +33,11 @@ export type { Order, OrderItem, User } from "./user-profile/types";
 
 export { useCreateProduct } from "./admin-profile/api/createProduct";
 export { useCreateRestaurant } from "./admin-profile/api/createRestaurant";
+export { useDeleteProduct } from "./admin-profile/api/deleteProduct";
 export { useDeleteRestaurant } from "./admin-profile/api/deleteRestaurant";
 export { useGetRestaurantSummary } from "./admin-profile/api/getRestaurantSummary";
 export { useUsersOrdersSummary } from "./admin-profile/api/getUsersOrdersSummary";
+export { AdminAddProductModal } from "./admin-profile/components/AdminAddProductModal";
 export { AdminCreateRestaurant } from "./admin-profile/components/AdminCreateRestaurant";
 export { AdminEditRestaurant } from "./admin-profile/components/AdminEditRestaurant";
 export { AdminOrdersSummary } from "./admin-profile/components/AdminOrdersSummary";
@@ -43,6 +45,7 @@ export { AdminProfile } from "./admin-profile/components/AdminProfile";
 export { AdminProfileTabs } from "./admin-profile/components/AdminProfileTabs";
 export { AdminRestaurantCard } from "./admin-profile/components/AdminRestaurantCard";
 export { AdminRestaurantList } from "./admin-profile/components/AdminRestaurantList";
+export { AdminRestaurantProducts } from "./admin-profile/components/AdminRestaurantProducts";
 export { AdminRestaurantSummary } from "./admin-profile/components/AdminRestaurantSummary";
 export { ADMIN_PROFILE_TABS, ADMIN_PROFILE_TABS_ICONS } from "./admin-profile/constants/index";
 export type {

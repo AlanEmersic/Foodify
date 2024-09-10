@@ -48,6 +48,7 @@ public static class RestaurantMappingExtensions
                     Month = monthGroup.Key,
                     Quantity = monthGroup.Sum(x => x.Quantity)
                 })
+                .OrderBy(x => x.Month)
                 .ToList()
         };
     }

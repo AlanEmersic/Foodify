@@ -11,7 +11,7 @@ const getRestaurantSummary = async (id: string): Promise<RestaurantSummary> => {
 
 export function useGetRestaurantSummary(id: string) {
   return useQuery<RestaurantSummary>({
-    queryKey: ["restaurantSummary"],
+    queryKey: ["restaurantSummary", id],
     queryFn: () => getRestaurantSummary(id),
     refetchOnWindowFocus: false,
   });

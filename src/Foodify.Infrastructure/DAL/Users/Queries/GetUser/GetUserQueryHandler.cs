@@ -15,7 +15,6 @@ internal sealed class GetUserQueryHandler : IRequestHandler<GetUserQuery, ErrorO
         this.context = context;
     }
 
-
     public async Task<ErrorOr<UserDto>> Handle(GetUserQuery query, CancellationToken cancellationToken)
     {
         UserDto? user = await context.Users
