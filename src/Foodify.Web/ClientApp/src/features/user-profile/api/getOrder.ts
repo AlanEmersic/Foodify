@@ -11,7 +11,7 @@ const getOrder = async (id: string): Promise<Order> => {
 
 export function useOrder(id: string) {
   return useQuery<Order>({
-    queryKey: ["order"],
+    queryKey: ["order", id],
     queryFn: () => getOrder(id),
     refetchOnWindowFocus: false,
   });

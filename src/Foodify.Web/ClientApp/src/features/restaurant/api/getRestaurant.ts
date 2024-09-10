@@ -11,7 +11,7 @@ const getRestaurant = async (id: string): Promise<Restaurant> => {
 
 export function useRestaurant(id: string) {
   return useQuery<Restaurant>({
-    queryKey: ["restaurant"],
+    queryKey: ["restaurant", id],
     queryFn: () => getRestaurant(id),
     refetchOnWindowFocus: false,
   });

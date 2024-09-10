@@ -11,7 +11,7 @@ const getUser = async (email: string): Promise<User> => {
 
 export function useUser(email: string) {
   return useQuery<User>({
-    queryKey: ["user"],
+    queryKey: ["user", email],
     queryFn: () => getUser(email),
     refetchOnWindowFocus: false,
   });
