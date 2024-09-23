@@ -27,6 +27,9 @@ instance.interceptors.request.use(
       if (decodedToken?.roles?.includes(Role.Admin)) {
         useAuthStore.setState({ isAdmin: true });
       }
+      else {
+        useAuthStore.setState({ isAdmin: false });
+      }
     }
 
     return config;
